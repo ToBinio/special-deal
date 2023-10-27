@@ -2,25 +2,36 @@
   "schemaVersion": 1,
   "id": "special-deal",
   "version": "${version}",
-
   "name": "Special Deal",
   "description": "",
   "authors": [],
-  "contact": {},
-
+  "contact": {
+    "repo": "https://github.com/tobia/special-deal"
+  },
   "license": "MIT",
   "icon": "assets/special-deal/icon.png",
-
   "environment": "*",
-  "entrypoints": {},
-
-      "mixins": [
-        "special-deal.mixins.json"
-      ],
-
+  "entrypoints": {
+    "client": [
+      "tobinio.specialdeal.client.SpecialDealClient"
+    ],
+    "main": [
+      "tobinio.specialdeal.SpecialDeal"
+    ]
+  },
+  "mixins": [
+    "special-deal.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=${loader_version}",
-        "fabric": "*",
+    "fabric": "*",
     "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/village/TradeOffer": [
+        "tobinio/specialdeal/SpecialOffer"
+      ]
+    }
   }
 }
